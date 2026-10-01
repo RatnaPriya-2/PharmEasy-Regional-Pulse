@@ -92,28 +92,42 @@ region_sales = (
 region_sales["series"] = region_sales["region"].apply(
     lambda r: "Flagged (Guntur)" if r == FLAGGED_REGION else "All Regions"
 )
-
 fig_bar = px.bar(
     region_sales,
-    x="region",
-    y="total_sales",
+    x="total_sales",
+    y="region",
     color="series",
+    orientation="h",
     color_discrete_map={
-        "All Regions":      "#B7C9E2",
+        "All Regions": "#B7C9E2",
         "Flagged (Guntur)": "#E8543A",
     },
-    category_orders={"region": region_sales["region"].tolist()},
+    category_orders={
+        "region": region_sales["region"].tolist()
+    },
     title="Which regions generate the most total sales? (Apr–Jun 2026)",
     labels={
         "total_sales": "Total Sales (INR ₹)",
-        "region":      "Region",
-        "series":      "",
+        "region": "Region",
+        "series": "",
     },
 )
-fig_bar.update_yaxes(rangemode="tozero", title_text="Total Sales (INR ₹)")
-fig_bar.update_xaxes(title_text="Region")
-fig_bar.update_layout(title_x=0.0)
-st.plotly_chart(fig_bar, width='stretch')
+
+fig_bar.update_xaxes(
+    rangemode="tozero",
+    title_text="Total Sales (INR ₹)"
+)
+
+fig_bar.update_yaxes(
+    title_text="Region",
+    autorange="reversed"
+)
+
+fig_bar.update_layout(
+    title_x=0.0
+)
+
+st.plotly_chart(fig_bar, width="stretch")
 
 st.markdown("---")
 
