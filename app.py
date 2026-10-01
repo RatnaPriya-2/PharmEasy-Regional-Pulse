@@ -113,7 +113,7 @@ fig_bar = px.bar(
 fig_bar.update_yaxes(rangemode="tozero", title_text="Total Sales (INR ₹)")
 fig_bar.update_xaxes(title_text="Region")
 fig_bar.update_layout(title_x=0.0)
-st.plotly_chart(fig_bar, use_container_width=True)
+st.plotly_chart(fig_bar, width='stretch')
 
 st.markdown("---")
 
@@ -148,7 +148,7 @@ fig_pie = px.pie(
 )
 fig_pie.update_traces(textposition="inside", textinfo="percent+label")
 fig_pie.update_layout(title_x=0.0, showlegend=True)
-st.plotly_chart(fig_pie, use_container_width=True)
+st.plotly_chart(fig_pie, width='stretch')
 
 # Category summary table
 display_cat = category_sales.rename(columns={
@@ -159,7 +159,7 @@ display_cat = category_sales.rename(columns={
 })
 display_cat["Total Sales (₹)"]  = display_cat["Total Sales (₹)"].map("₹{:,.2f}".format)
 display_cat["Total Profit (₹)"] = display_cat["Total Profit (₹)"].map("₹{:,.2f}".format)
-st.dataframe(display_cat, hide_index=True, use_container_width=True)
+st.dataframe(display_cat, hide_index=True, width='stretch')
 
 st.markdown("---")
 
@@ -198,7 +198,7 @@ fig_line = px.line(
 fig_line.update_yaxes(rangemode="tozero", title_text="Total Sales (INR ₹)")
 fig_line.update_xaxes(title_text="Month")
 fig_line.update_layout(title_x=0.0)
-st.plotly_chart(fig_line, use_container_width=True)
+st.plotly_chart(fig_line, width='stretch')
 
 # Task 4.1: per-region, per-month data table - filtered by region selectbox
 monthly_details = (
@@ -222,7 +222,7 @@ monthly_details["Total Sales (₹)"]  = monthly_details["Total Sales (₹)"].map
 monthly_details["Total Profit (₹)"] = monthly_details["Total Profit (₹)"].map("₹{:,.2f}".format)
 
 st.markdown(f"**Per-region, per-month breakdown — {selected_region}**")
-st.dataframe(monthly_details, hide_index=True, use_container_width=True)
+st.dataframe(monthly_details, hide_index=True, width='stretch')
 
 st.caption(
     "Dashboard built with Streamlit & Plotly  ·  "
