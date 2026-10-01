@@ -57,6 +57,6 @@ print("Region order counts:", result7)
 # Task 2.3: Region × month sales metrics (Apr, May, Jun 2026) via SQL GROUP BY
 query8 = '''SELECT r.region, SUM(o.sales_inr) AS total_sales, strftime("%Y-%m",o.order_date) AS month FROM regions_master as r LEFT JOIN orders_clean as o ON r.region=o.region GROUP BY r.region,month ORDER BY r.region,month'''
 result8 = conn.execute(query8).fetchall()
-print("Region and monthly order counts:", result8)
+print("Region and monthly sales:", result8)
 
 conn.close()
