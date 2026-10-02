@@ -2,25 +2,35 @@
 
 ## Data Quality Issues Addressed
 
-| Cleaning step | Data quality dimension | Reason |
+| Cleaning Step | Data Quality Dimension | Reason |
 |---|---|---|
-| Removed exact duplicate rows | Uniqueness | Duplicate records were removed so that the same record does not appear more than once. |
-| Removed extra spaces and converted region names to title case | Consistency | Region names were standardized so that different formats of the same region are treated consistently. |
-| Standardized region names to the 9 active canonical region names | Validity | Region values were brought into the expected set of valid canonical region values. |
-| Filled missing category values using the product-category lookup | Completeness | Missing category values were filled instead of dropping the affected rows. |
-| Filled missing profit values using the category-wise mean profit margin | Completeness | Missing profit values were calculated and filled using the required method. |
+| Removed exact duplicate rows | Uniqueness | Dropped duplicate records so each record is represented once without inflating totals. |
+| Removed extra whitespace and converted region text to Title Case | Consistency | Standardized region text so variations of the same region name are treated consistently in aggregations. |
+| Filled missing category values via product lookup table | Completeness | Restored missing category values based on existing product-to-category relationships without dropping rows. |
+| Imputed missing profit values via category-wise mean margin | Completeness | Populated missing profit values using calculated category-level margins while preserving the dataset rows. |
 
-## Data Quality Dimensions
+---
 
-The cleaning pipeline directly addressed the following dimensions:
+## Analysis of Data Quality Dimensions
 
-- **Uniqueness:** Exact duplicate records were removed.
-- **Consistency:** Region names were standardized.
-- **Validity:** Region values were standardized to the expected canonical region names.
-- **Completeness:** Missing category and profit values were imputed.
+### Addressed Dimensions
 
-The following dimensions were not directly addressed by the required cleaning steps:
+- **Uniqueness:** Identified and removed exact duplicate records using `df.drop_duplicates()`.
+
+- **Consistency:** Standardized region names using `.str.strip()` and `.str.title()` so different textual representations of the same region are treated consistently.
+
+- **Completeness:** Filled missing `category` values using the product-category lookup and missing `profit_inr` values using category-wise mean profit margins.
+
+### Unaddressed Dimensions
 
 - **Accuracy:** No external source was used to verify whether the recorded values were factually correct.
-- **Timeliness:** No date or time-related transformation was required.
-- **Relevance:** No records or fields were removed based on their relevance to the dataset.
+
+- **Timeliness:** No date or time-related transformation or validation was required by the cleaning steps.
+
+- **Validity:** No separate validation of data values against predefined valid-value rules was performed.
+
+- **Relevance:** No records or fields were removed based on their relevance to the analysis.
+
+## Schema Validation
+
+The `validate_schema()` function was used to verify that all required columns were present in the cleaned dataset. A deliberately broken copy was also tested to confirm that missing required columns were correctly detected and reported.
