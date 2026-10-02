@@ -1,15 +1,8 @@
 # ==============================================================================
 # Task 3.1 — CII Insight Generator (draft_report_v1)
 # ==============================================================================
-import sys
-import pandas as pd
-from metrics_engine import flagged_regions, monthly_summary
 
-if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
+from metrics_engine import flagged_regions, monthly_summary
 
 # Task 3.1: CII insight generator
 def draft_report_v1(flagged_regions, metrics):

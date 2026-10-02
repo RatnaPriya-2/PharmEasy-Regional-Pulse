@@ -2,7 +2,6 @@
 # Task 2.2 — SQL JOIN Validation & Task 2.3 — Region × Month Metrics
 # ==============================================================================
 import sqlite3
-import pandas as pd
 
 conn = sqlite3.connect('pharmeasy.db')
 

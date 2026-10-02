@@ -1,19 +1,13 @@
 # ==============================================================================
 # Task 3.4 — Review Gate Tool with Audit Log (review_gate_v1)
 # ==============================================================================
-import sys
-import os
+
 import json
 import uuid
 from datetime import datetime, timezone
 from draft_report import draft_report_v1
 from metrics_engine import flagged_regions, monthly_summary
 
-if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except Exception:
-        pass
 
 # Task 3.4: Review gate function
 def review_gate_v1(report, decision, reviewer_note="Reviewed and approved."):

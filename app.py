@@ -120,7 +120,7 @@ fig_bar.update_xaxes(
 
 fig_bar.update_yaxes(
     title_text="Region",
-    autorange="reversed"
+
 )
 
 fig_bar.update_layout(
