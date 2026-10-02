@@ -58,8 +58,8 @@ Insight:
 {insight}
 
 Implication:
-This significant movement in {region}'s sales should be reviewed to understand
-the factors contributing to the change and determine the appropriate next check."""
+This significant movement in {region}'s sales should be reviewed to identify
+possible contributing factors and determine the appropriate next check."""
 
         cii[region] = template
 
