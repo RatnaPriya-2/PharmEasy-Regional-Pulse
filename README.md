@@ -3,17 +3,21 @@
 ## 1. Setup & End-to-End Pipeline Execution Guide
 
 ### Prerequisites
+
 - Python 3.9+
-- Standard open-source libraries: `pandas`, `plotly`, `streamlit` (sqlite3 is built-in)
+- Standard open-source libraries: `pandas`, `plotly`, `streamlit` (`sqlite3` is built-in)
 - Zero paid services, zero API keys, zero signup-gated tools required.
 
 ### Installation
+
 Install the necessary packages:
+
 ```bash
 pip install pandas plotly streamlit
 ```
 
 ### End-to-End Execution Commands
+
 Run the complete pipeline from scratch using these exact commands in order:
 
 ```bash
@@ -29,7 +33,7 @@ python build_db.py
 # Step 4: Run SQL JOIN validations and metrics queries
 python queries.py
 
-# Step 5: Run the metrics engine, 8% significance flagging, and state persistence
+# Step 5: Run the metrics engine, 8% alerting, and state persistence
 python metrics_engine.py
 
 # Step 6: Generate Context-Insight-Implication (CII) narrative blocks
@@ -44,33 +48,39 @@ streamlit run app.py
 
 ---
 
-## 2. Executive Cover Note (4-Artifact Evaluation-Ready Deliverable)
+## 2. Executive Cover Note — Key Evaluation Artifacts
 
 ### Headline Finding
-Between April and May 2026, Guntur recorded an extraordinary month-on-month sales surge of **+122.19%** (rising from ₹62,442.27 to ₹138,738.93) before partially retracing in June (−28.11% to ₹99,745.18), representing the single largest percentage swing in the dataset.
+
+Between April and May 2026, Guntur recorded a **+122.19% month-on-month sales increase** (rising from ₹62,442.27 to ₹138,738.93) before partially retracing in June (**−28.11%** to ₹99,745.18), representing the **largest-magnitude flagged month-on-month swing** in the dataset.
 
 ### Pointers to the 4 Evaluation Artifacts
+
 - **Streamlit Dashboard (`app.py`):** Live data exploration tool implementing a 3-level hierarchy (Overview, Category, Detail) connected by an interactive region filter.
 - **Embedded CII Narrative (inside `app.py`):** Executive summary embedded at the top of the dashboard framing what the high-level metrics mean operationally.
-- **One-Page Memo (`memo.md`):** Formal 7-field decision document with inline verification risk tiers (`[LOW]`, `[MEDIUM]`, `[HIGH]`) guiding leadership on actionable next checks.
-- **Presentation Storyline (`presentation_storyline.md`):** Dual audience-reframed presentation narratives (SCR for executives and OCD for regional leads) alongside an analytically rigorous 3-question pushback defense.
+- **One-Page Memo (`memo.md`):** Formal 7-field decision document with inline verification risk tiers (`[LOW]`, `[MEDIUM]`, `[HIGH]`) for each factual claim.
+- **Presentation Storyline (`presentation_storyline.md`):** Dual audience-reframed presentation narratives (SCR for executives and OCD for regional leads) alongside a stakeholder pushback defense.
 
 ### Recommended Reviewer Consumption Order
+
 To evaluate this project coherently, review the deliverables in this sequence:
+
 1. **`app.py` (Embedded CII Summary & Live Dashboard):** Grasp the headline findings and explore regional and category patterns interactively.
-2. **`memo.md`:** Review the grounded business recommendation and risk-tiered evidence.
+2. **`memo.md`:** Review the grounded business recommendation and verification-risk-tagged claims.
 3. **`presentation_storyline.md`:** See how the core finding is tailored for executive vs. operational audiences and defended against stakeholder skepticism.
 4. **Data & Metrics Pipeline Scripts (`clean_data.py`, `build_db.py`, `queries.py`, `metrics_engine.py`, `review_gate.py`):** Verify data foundation rigor, SQL joins, deterministic calculations, and audit logging.
 
 ### Upfront Unverified Assumption
-> **From `memo.md` (Assumptions):**  
+
+> **From `memo.md` (Assumptions):**
+>
 > *"Hypothesis: The increase could be related to changes in the number of orders, products or quantities sold. However, the current analysis does not provide enough evidence to confirm the reason for the increase. Further analysis of the order-level data is required."*
 
 ---
 
 ## 📁 Repository Structure
 
-```
+```text
 ├── generate_dataset.py       # Deterministic dataset builder (seed 2026)
 ├── clean_data.py             # Data cleaning pipeline & schema validator
 ├── data_quality_report.md    # 7 data quality dimensions mapping

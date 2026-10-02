@@ -43,7 +43,9 @@ april_summary = summaries['2026-04']
 may_summary = summaries['2026-05']
 june_summary = summaries['2026-06']
 
-# Task 2.4: compute_percentage_change_v1 (handles division-by-zero by returning 0)
+# Task 2.4: compute_percentage_change_v1
+# Handles zero or missing previous values by returning 0
+
 def compute_percentage_change_v1(current, previous):
     if previous == 0 or previous is None:
         return 0
