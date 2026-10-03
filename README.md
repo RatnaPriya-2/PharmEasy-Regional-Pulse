@@ -86,7 +86,7 @@ To evaluate this project coherently, review the deliverables in this sequence:
 ├── data_quality_report.md    # 7 data quality dimensions mapping
 ├── build_db.py               # SQLite database initializer (pharmeasy.db)
 ├── queries.py                # SQL JOIN validations and metrics queries
-├── metrics_engine.py         # MoM percentage changes, 8% alerting, state persistence
+├── metrics_engine.py         # MoM percentage changes, 8% threshold flagging, state persistence
 ├── draft_report.py           # CII insight generation for flagged regions
 ├── memo.md                   # 1-page risk-tiered recommendation memo
 ├── review_gate.py            # Governance review gate with 3 decision paths
